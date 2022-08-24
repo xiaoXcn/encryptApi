@@ -1,3 +1,4 @@
+import com.xiaoxcn.encrypt.RestHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -28,7 +29,7 @@ public class EncryptApiApplication {
                     .childHandler(new ChannelInitializer() {
                         @Override
                         protected void initChannel(Channel channel) throws Exception {
-//                            channel.pipeline().addLast(new )
+                            channel.pipeline().addLast(new RestHandler());
                         }
                     });
             ChannelFuture future = bootstrap.bind().sync();
